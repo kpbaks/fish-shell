@@ -63,6 +63,9 @@ function cdh --description "Menu based cd command"
 
     # Ask the user which directory from their history they want to cd to.
     set -l msg (_ 'Select directory by letter or number: ')
+    # TODO: enable user to press escape to cancel read and function
+    # Seems not possible as of fish 4.0.2
+    # If `read` uses GNU readline it might be possible if inputrc file is altered?
     read -l -p "echo '$msg'" choice
     if test -z "$choice"
         return 0
